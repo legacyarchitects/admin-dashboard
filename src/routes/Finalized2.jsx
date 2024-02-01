@@ -42,24 +42,16 @@ export default function Finalized() {
           return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
         },
       },
-      {
-        field: "clientId",
-        headerName: "Contact ID",
-        type: "number",
-        width: 110,
-        editable: false,
-      },
     ],
     []
   );
 
   const rows =
   data?.map((item) => ({
-    id: item.game,
+    id: item.id,
     firstName: item.first_name,
     lastName: item.last_name,
     lawyerName: item.lawyer_name,
-    clientId: item.client_id,
     timeClicked: item.time_clicked,
   })) ?? [];
 
