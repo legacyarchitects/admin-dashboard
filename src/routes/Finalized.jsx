@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { getFinalizedData } from "../api/userQueries";
-import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 

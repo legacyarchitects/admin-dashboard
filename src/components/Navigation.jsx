@@ -7,7 +7,7 @@ import logo2x from "../assets/logo2x.svg";
 
 //configure the navigation links here
 const navigation = [
-  { name: "Admin Dashboard", to: "/", current: true }, // Use 'to' prop instead of 'href'
+  { name: "Home", to: "/", current: true }, // Use 'to' prop instead of 'href'
   { name: "Finalized Data Dashboard", to: "/finalize", current: false }, // Use 'to' prop instead of 'href'
 ];
 
