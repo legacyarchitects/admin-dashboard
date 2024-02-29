@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useQuery } from "@tanstack/react-query";
 import { getFinalizedData } from "../api/userQueries";
+import moment from "moment-timezone";
 
 export default function Finalized() {
   const { data, error, isLoading, isError } = useQuery({
@@ -33,13 +34,17 @@ export default function Finalized() {
       },
       {
         field: "timeClicked",
-        headerName: "Time Clicked",
+        headerName: "Time Clicked (MST)",
         width: 200,
         editable: false,
-        renderCell: (params) => {
-          const date = new Date(params.value);
-          date.setHours(date.getHours() - 7);
-          return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+        // renderCell: (params) => {
+        //   const date = new Date(params.value);
+        //   date.setHours(date.getHours() - 7);
+        //   return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+        // },
+         renderCell: (params) => {
+          const date = moment(params.value).tz('America/Denver');
+          return date.format('MM/DD/YYYY h:mm A');
         },
       },
     ],
